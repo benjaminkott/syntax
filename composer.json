@@ -1,0 +1,64 @@
+{
+    "name": "bk2k/syntax",
+    "type": "typo3-cms-extension",
+    "description": "",
+    "keywords": [
+        "TYPO3 CMS",
+        "Extension"
+    ],
+    "homepage": "https://github.com/benjaminkott/syntax",
+    "authors": [
+        {
+            "name": "Benjamin Kott",
+            "email": "info@bk2k.info",
+            "role": "Developer",
+            "homepage": "http://www.bk2k.info/"
+        }
+    ],
+    "license": [
+        "GPL-2.0-or-later"
+    ],
+    "support": {
+        "issues": "https://github.com/benjaminkott/syntax/issues"
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "typo3/cms-backend": "^9.5 || 10.0.*@dev",
+        "typo3/cms-core": "^9.5 || 10.0.*@dev",
+        "typo3/cms-frontend": "^9.5 || 10.0.*@dev"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "BK2K\\Syntax\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BK2K\\Syntax\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "syntax": "self.version",
+        "typo3-ter/syntax": "self.version"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "vendor-dir": ".build/vendor",
+        "bin-dir": ".build/bin"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p .build/web/typo3conf/ext/",
+            "[ -L .build/web/typo3conf/ext/syntax ] || ln -snvf ../../../../. .build/web/typo3conf/ext/syntax"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".build/web"
+        }
+    }
+}

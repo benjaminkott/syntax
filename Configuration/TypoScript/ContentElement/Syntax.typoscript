@@ -1,0 +1,35 @@
+#######################
+#### CTYPE: SYNTAX ####
+#######################
+
+tt_content.syntax >
+tt_content.syntax =< lib.contentElement
+tt_content.syntax {
+
+    ################
+    ### TEMPLATE ###
+    ################
+    templateName = Syntax
+    templateRootPaths {
+        1 = EXT:syntax/Resources/Private/Templates/ContentElements/
+    }
+    partialRootPaths {
+        1 = EXT:syntax/Resources/Private/Partials/ContentElements/
+    }
+    layoutRootPaths {
+        1 = EXT:syntax/Resources/Private/Layouts/ContentElements/
+    }
+
+    ################
+    ### SETTINGS ###
+    ################
+    settings {
+        syntax {
+            theme = {$plugin.tx_syntax.settings.theme}
+            plugins {
+                linenumbers = {$plugin.tx_syntax.settings.plugins.linenumbers}
+            }
+        }
+    }
+
+}

@@ -1,0 +1,10 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:variable name="class"></f:variable>
+    <f:if condition="{settings.syntax.plugins.linenumbers}"><f:variable name="class">{class} line-numbers</f:variable></f:if>
+    <pre class="{class}"><code class="language-{data.syntax_language}">{data.bodytext}</code></pre>
+
+</f:section>
+</html>

@@ -1,0 +1,16 @@
+####################################
+#### NEW CONTENT ELEMENT WIZARD ####
+####################################
+mod.wizards.newContentElement.wizardItems.special {
+    elements {
+        syntax {
+            iconIdentifier = content-element-syntax
+            title = LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.title
+            description = LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.description
+            tt_content_defValues {
+                CType = syntax
+            }
+        }
+    }
+    show := addToList(syntax)
+}

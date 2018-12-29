@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages">
+        <body>
+            <trans-unit id="extension.title">
+                <source>Syntax Highlighting</source>
+            </trans-unit>
+            <trans-unit id="content_element.syntax.title">
+                <source>Syntax Highlighting</source>
+            </trans-unit>
+            <trans-unit id="content_element.syntax.description">
+                <source>Lightweight, robust, elegant syntax highlighting based on PrismJS</source>
+            </trans-unit>
+            <trans-unit id="field.bodytext">
+                <source>Code</source>
+            </trans-unit>
+            <trans-unit id="field.syntax_language">
+                <source>Language</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
