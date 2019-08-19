@@ -8,9 +8,12 @@
     "version": "1.0.0",
     "license": "GPL-2.0-or-later",
     "devDependencies": {
-        "grunt": "^1.0.3",
+        "grunt": "^1.0.4",
         "grunt-contrib-cssmin": "^3.0.0",
-        "grunt-contrib-uglify": "^4.0.0",
-        "prismjs": "^1.15.0"
+        "grunt-contrib-uglify": "^4.0.1",
+        "prismjs": "^1.17.0"
+    },
+    "scripts": {
+        "build": "./node_modules/.bin/grunt build"
     }
 }
