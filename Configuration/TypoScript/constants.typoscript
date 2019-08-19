@@ -3,7 +3,7 @@
 ##################
 plugin.tx_syntax {
     settings {
-        # cat=syntax highlighting/theme; type=options[Default=, Coy=-coy, Dark=-dark, Funky=-funky, Okaidia=-Okaidia, Solarized Light=-solarizedlight, Tomorrow=-tomorrow, Twilight=-twilight]; label=Theme
+        # cat=syntax highlighting/theme; type=options[Default=, Coy=-coy, Dark=-dark, Funky=-funky, Okaidia=-okaidia, Solarized Light=-solarizedlight, Tomorrow=-tomorrow, Twilight=-twilight]; label=Theme
         theme =
         plugins {
             # cat=syntax highlighting/plugins_linenumbers; type=boolean; label=Enable line numbers

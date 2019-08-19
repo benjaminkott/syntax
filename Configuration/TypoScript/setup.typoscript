@@ -8,15 +8,11 @@
 #### PAGE ####
 ##############
 page {
-    includeCSS {
-        symtax_prism_base = EXT:syntax/Resources/Public/Css/prism{$plugin.tx_syntax.settings.theme}.min.css
-        syntax_prism_plugin_linenumbers = EXT:syntax/Resources/Public/Css/prism-plugin-linenumbers.min.css
-        syntax_prism_plugin_toolbar = EXT:syntax/Resources/Public/Css/prism-plugin-toolbar.min.css
+    inlineSettings {
+        syntax_theme = {$plugin.tx_syntax.settings.theme}
+        syntax_plugins_linenumbers = {$plugin.tx_syntax.settings.plugins.linenumbers}
     }
     includeJSFooter {
-        syntax_prism_base = EXT:syntax/Resources/Public/JavaScript/prism.min.js
-        syntax_prism_plugin_linenumbers = EXT:syntax/Resources/Public/JavaScript/prism-plugin-linenumbers.min.js
-        syntax_prism_plugin_toolbar = EXT:syntax/Resources/Public/JavaScript/prism-plugin-toolbar.min.js
-        syntax_prism_plugin_showlanguage = EXT:syntax/Resources/Public/JavaScript/prism-plugin-showlanguage.min.js
+        syntax_prism = EXT:syntax/Resources/Public/JavaScript/syntax.min.js
     }
 }
