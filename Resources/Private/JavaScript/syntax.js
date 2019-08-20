@@ -44,13 +44,8 @@ function loadPrism() {
     loadJsFiles(jsFiles);
 }
 
-
 window.addEventListener('DOMContentLoaded', function() {
-    var list = document.getElementsByTagName('pre');
-    for (var i = 0; i < list.length; i++) {
-        if(list[i].getElementsByTagName('code').length > 0) {
-            loadPrism();
-            break;
-        }
+    if (document.querySelector('pre code') !== null) {
+        loadPrism();
     }
 });
