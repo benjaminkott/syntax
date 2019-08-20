@@ -68,6 +68,9 @@
         "typo3/cms": {
             "web-dir": ".build/public",
             "app-dir": ".build"
+        },
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
         }
     }
 }
