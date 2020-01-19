@@ -9,8 +9,6 @@
 
 namespace BK2K\Syntax\EventListener;
 
-use TYPO3\CMS\RteCKEditor\Form\Element\Event\AfterGetExternalPlugins;
-use TYPO3\CMS\RteCKEditor\Form\Element\Event\AfterPrepareConfigurationForEditor;
 use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforeGetExternalPlugins;
 use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforePrepareConfigurationForEditor;
 
