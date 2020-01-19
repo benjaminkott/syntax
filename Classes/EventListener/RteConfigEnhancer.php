@@ -18,13 +18,17 @@ class RteConfigEnhancer
 {
     public function beforeGetExternalPlugins(BeforeGetExternalPlugins $event): void
     {
-        $configuraton = $event->getConfiguration();
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($configuraton, 'before plugins');
+        $configuration = $event->getConfiguration();
+        $configuration['syntax_code'] = [
+            'resource' => 'EXT:syntax/Resources/Public/CKEditor/Plugins/Code/plugin.js'
+        ];
+        $event->setConfiguration($configuration);
     }
 
     public function beforePrepareConfiguration(BeforePrepareConfigurationForEditor $event): void
     {
-        $configuraton = $event->getConfiguration();
-        \TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($configuraton, 'before config');
+        $configuration = $event->getConfiguration();
+        $configuration['extraPlugins'][] = 'syntax_code';
+        $event->setConfiguration($configuration);
     }
 }
