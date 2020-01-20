@@ -9,12 +9,12 @@
 
 namespace BK2K\Syntax\EventListener;
 
-use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforeGetExternalPlugins;
-use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforePrepareConfigurationForEditor;
+use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforeGetExternalPluginsEvent;
+use TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforePrepareConfigurationForEditorEvent;
 
 class RteConfigEnhancer
 {
-    public function beforeGetExternalPlugins(BeforeGetExternalPlugins $event): void
+    public function beforeGetExternalPlugins(BeforeGetExternalPluginsEvent $event): void
     {
         $configuration = $event->getConfiguration();
         $configuration['syntax_code'] = [
@@ -23,7 +23,7 @@ class RteConfigEnhancer
         $event->setConfiguration($configuration);
     }
 
-    public function beforePrepareConfiguration(BeforePrepareConfigurationForEditor $event): void
+    public function beforePrepareConfiguration(BeforePrepareConfigurationForEditorEvent $event): void
     {
         $configuration = $event->getConfiguration();
         $configuration['extraPlugins'][] = 'syntax_code';
