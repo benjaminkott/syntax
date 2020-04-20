@@ -6,5 +6,15 @@
     <f:if condition="{settings.syntax.plugins.linenumbers}"><f:variable name="class">{class} line-numbers</f:variable></f:if>
     <pre class="{class}"><code class="language-{data.syntax_language}">{data.bodytext}</code></pre>
 
+    <f:asset.script identifier="prism" src="EXT:syntax/Resources/Public/JavaScript/prism.min.js" />
+    <f:asset.css identifier="prism" href="EXT:syntax/Resources/Public/Css/prism{settings.syntax.theme}.min.css" />
+    <f:if condition="{settings.syntax.plugins.linenumbers}">
+        <f:asset.script identifier="prism-plugin-linenumbers" src="EXT:syntax/Resources/Public/JavaScript/prism-plugin-linenumbers.min.js" />
+        <f:asset.css identifier="prism-plugin-linenumbers" href="EXT:syntax/Resources/Public/Css/prism-plugin-linenumbers.min.css" />
+    </f:if>
+    <f:asset.script identifier="prism-plugin-toolbar" src="EXT:syntax/Resources/Public/JavaScript/prism-plugin-toolbar.min.js" />
+    <f:asset.script identifier="prism-plugin-showlanguage" src="EXT:syntax/Resources/Public/JavaScript/prism-plugin-showlanguage.min.js" />
+    <f:asset.css identifier="prism-plugin-toolbar" href="EXT:syntax/Resources/Public/Css/prism-plugin-toolbar.min.css" />
+
 </f:section>
 </html>

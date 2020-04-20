@@ -2,17 +2,3 @@
 #### CONTENT ELEMENT RENDERING ####
 ###################################
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:syntax/Configuration/TypoScript/ContentElement/Syntax.typoscript">
-
-
-##############
-#### PAGE ####
-##############
-page {
-    inlineSettings {
-        syntax_theme = {$plugin.tx_syntax.settings.theme}
-        syntax_plugins_linenumbers = {$plugin.tx_syntax.settings.plugins.linenumbers}
-    }
-    includeJSFooter {
-        syntax_prism = EXT:syntax/Resources/Public/JavaScript/syntax.min.js
-    }
-}
