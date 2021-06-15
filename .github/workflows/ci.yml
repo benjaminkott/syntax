@@ -5,17 +5,19 @@ on: [push, pull_request]
 jobs:
   build-php:
     name: Build PHP
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
       matrix:
         php: ['7.0', '7.1', '7.2', '7.3']
     steps:
-    - uses: actions/checkout@v1
-    - name: Set up PHP Version
-      run: |
-        sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
-        php -v
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Set up PHP ${{ matrix.php }}
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        tools: composer:v2
     - name: Update Composer
       run: |
         sudo composer self-update
