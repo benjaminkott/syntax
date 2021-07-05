@@ -21,10 +21,9 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
     [
         'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.title',
         'syntax',
-        'content-element-syntax'
-    ],
-    '--div--',
-    'after'
+        'content-element-syntax',
+        'syntax'
+    ]
 );
 
 // Assign icon

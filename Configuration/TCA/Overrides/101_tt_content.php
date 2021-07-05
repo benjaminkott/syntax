@@ -13,10 +13,7 @@ defined('TYPO3') or die('Access denied.');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItemGroup(
     'tt_content',
     'CType',
-    [
-        'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:extension.title',
-        '--div--'
-    ],
-    '--div--',
-    'before'
+    'syntax',
+    'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:extension.title',
+    'after:default'
 );
