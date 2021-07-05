@@ -7,11 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3_MODE') || die();
+defined('TYPO3') or die('Access denied.');
 
-/***************
- * Add static typoscript
- */
+// Add static typoscript
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'syntax',
     'Configuration/TypoScript',

@@ -7,18 +7,14 @@
  * LICENSE file that was distributed with this source code.
  */
 
-defined('TYPO3_MODE') || die();
+defined('TYPO3') or die('Access denied.');
 
-/***************
- * Add content element
- */
+// Add content element
 if (!is_array($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
     $GLOBALS['TCA']['tt_content']['types']['syntax'] = [];
 }
 
-/***************
- * Add content element to selector list
- */
+// Add content element to selector list
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
@@ -31,14 +27,10 @@ if (!is_array($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
     'after'
 );
 
-/***************
- * Assign icon
- */
+// Assign icon
 $GLOBALS['TCA']['tt_content']['ctrl']['typeicon_classes']['syntax'] = 'content-element-syntax';
 
-/***************
- * Configure element type
- */
+// Configure element type
 $GLOBALS['TCA']['tt_content']['types']['syntax'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['types']['syntax'],
     [
@@ -65,9 +57,7 @@ $GLOBALS['TCA']['tt_content']['types']['syntax'] = array_replace_recursive(
     ]
 );
 
-/***************
- * Register fields
- */
+// Register fields
 $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     $GLOBALS['TCA']['tt_content']['columns'],
     [
@@ -108,10 +98,8 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     ]
 );
 
-/***************
- * Activate t3editor if extension is activated
- */
-if (TYPO3_MODE === 'BE' && \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
+// Activate t3editor if extension is activated
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
     $GLOBALS['TCA']['tt_content']['types']['syntax']['columnsOverrides'] = [
         'bodytext' => [
             'config' => [
