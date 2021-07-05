@@ -1,3 +1,16 @@
+# 2.0.0
+
+## TASK
+
+- [TASK] Update packages 781f767
+- [TASK] Update dependencies 430b48f
+- [TASK] Use ubuntu latest and update checkout ad83a30
+- [TASK] Allow v11 dev and add extension key 26790d8
+
+## BUGFIX
+
+- [BUGFIX] Correct element registration 52cc99c
+
 # 1.2.1
 
 ## TASK
