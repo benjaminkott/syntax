@@ -38,8 +38,8 @@ jobs:
     - name: Install
       run: |
         cd Build
-        yarn install
+        npm ci
     - name: Build
       run: |
         cd Build
-        yarn build
+        npm run build
