@@ -11,7 +11,7 @@
         "grunt": "^1.4.1",
         "grunt-contrib-cssmin": "^4.0.0",
         "grunt-contrib-uglify": "^5.0.1",
-        "prismjs": "^1.25.0"
+        "prismjs": "^1.27.0"
     },
     "scripts": {
         "build": "./node_modules/.bin/grunt build"
