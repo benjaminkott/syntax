@@ -10,7 +10,7 @@
 defined('TYPO3') or die('Access denied.');
 
 // Add content element
-if (!is_array($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
+if (!isset($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
     $GLOBALS['TCA']['tt_content']['types']['syntax'] = [];
 }
 

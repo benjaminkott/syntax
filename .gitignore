@@ -3,3 +3,6 @@
 Build/node_modules/*
 composer.lock
 *.cache
+
+config/
+var/
