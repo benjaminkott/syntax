@@ -48,13 +48,6 @@ module.exports = function(grunt) {
                     comments: false
                 }
             },
-            syntax: {
-                files: {
-                    '<%= paths.js %>syntax.min.js': [
-                        '<%= paths.resources %>Private/JavaScript/syntax.js',
-                    ]
-                }
-            },
             prism: {
                 files: {
                     '<%= paths.js %>prism.min.js': [
