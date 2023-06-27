@@ -67,6 +67,8 @@ return (new PhpCsFixer\Config())
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->exclude('.build')
+            ->exclude('Build/node_modules')
+            ->exclude('config')
             ->exclude('Contrib')
             ->exclude('var')
             ->in(__DIR__)
