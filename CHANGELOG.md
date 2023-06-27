@@ -1,3 +1,16 @@
+# 3.0.0
+
+## TASK
+
+- 85c8d3f [TASK] Make includes v12 compatible
+- a57b0e4 [TASK] Update csfixer config
+- 64db6d9 [TASK] Update frontend dependencies
+- b4683ed [TASK] Add compat for v12
+
+## Contributors
+
+- Benjamin Kott
+
 # 2.0.1
 
 ## TASK
