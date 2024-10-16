@@ -71,7 +71,7 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'label' => 'None',
+                        'label' => 'Plain Text',
                         'value' => 'none',
                     ],
                     [

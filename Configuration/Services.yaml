@@ -3,9 +3,5 @@ services:
     tags:
       - name: event.listener
         identifier: 'ext-syntax/rteConfigEnhancer'
-        method: 'beforeGetExternalPlugins'
-        event: TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforeGetExternalPluginsEvent
-      - name: event.listener
-        identifier: 'ext-syntax/rteConfigEnhancer'
         method: 'beforePrepareConfiguration'
         event: TYPO3\CMS\RteCKEditor\Form\Element\Event\BeforePrepareConfigurationForEditorEvent

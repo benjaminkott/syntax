@@ -1,0 +1,26 @@
+categories:
+  Syntax:
+    label: 'Syntax'
+
+settings:
+
+  plugin.tx_syntax.settings.theme:
+    label: 'Theme'
+    category: Syntax
+    type: string
+    enum:
+      '': 'Default'
+      '-coy': 'Coy'
+      '-dark': 'Dark'
+      '-funky': 'Funky'
+      '-okaidia': 'Okaidia'
+      '-solarizedlight': 'Solarized Light'
+      '-tomorrow': 'Tomorrow'
+      '-twilight': 'Twilight'
+    default: ''
+
+  plugin.tx_syntax.settings.plugins.linenumbers:
+    label: 'Enable line numbers'
+    category: Syntax
+    type: bool
+    default: true
