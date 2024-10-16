@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use TYPO3\CMS\Core\Information\Typo3Version;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') or die('Access denied.');
 
 // Add content element
@@ -15,14 +18,14 @@ if (!isset($GLOBALS['TCA']['tt_content']['types']['syntax'])) {
 }
 
 // Add content element to selector list
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
         'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.title',
         'syntax',
         'content-element-syntax',
-        'syntax'
+        'syntax',
     ]
 );
 
@@ -52,7 +55,7 @@ $GLOBALS['TCA']['tt_content']['types']['syntax'] = array_replace_recursive(
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
                 rowDescription,
             --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:extended,
-        '
+        ',
     ]
 );
 
@@ -62,49 +65,119 @@ $GLOBALS['TCA']['tt_content']['columns'] = array_replace_recursive(
     [
         'syntax_language' => [
             'label' => 'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:field.syntax_language',
+            'onChange' => 'reload',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
                     [
-                        'None',
-                        'none'
+                        'label' => 'None',
+                        'value' => 'none',
                     ],
-                    ['Apache Configuration', 'apacheconf'],
-                    ['C-like', 'clike'],
-                    ['CSS', 'css'],
-                    ['Git', 'git'],
-                    ['HTML', 'html'],
-                    ['JavaScript', 'javascript'],
-                    ['JSON', 'json'],
-                    ['Markup ', 'markup'],
-                    ['Less', 'less'],
-                    ['Markdown', 'markdown'],
-                    ['MathML', 'mathml'],
-                    ['nginx', 'nginx'],
-                    ['PHP', 'php'],
-                    ['Sass', 'sass'],
-                    ['Scss', 'scss'],
-                    ['SVG', 'svg'],
-                    ['TypoScript', 'typoscript'],
-                    ['XML', 'xml'],
-                    ['YAML', 'yaml'],
+                    [
+                        'label' => 'Apache Configuration',
+                        'value' => 'apacheconf',
+                    ],
+                    [
+                        'label' => 'C-like',
+                        'value' => 'clike',
+                    ],
+                    [
+                        'label' => 'CSS',
+                        'value' => 'css',
+                    ],
+                    [
+                        'label' => 'Git',
+                        'value' => 'git',
+                    ],
+                    [
+                        'label' => 'HTML',
+                        'value' => 'html',
+                    ],
+                    [
+                        'label' => 'JavaScript',
+                        'value' => 'javascript',
+                    ],
+                    [
+                        'label' => 'JSON',
+                        'value' => 'json',
+                    ],
+                    [
+                        'label' => 'Markup',
+                        'value' => 'markup',
+                    ],
+                    [
+                        'label' => 'Less',
+                        'value' => 'less',
+                    ],
+                    [
+                        'label' => 'Markdown',
+                        'value' => 'markdown',
+                    ],
+                    [
+                        'label' => 'MathML',
+                        'value' => 'mathml',
+                    ],
+                    [
+                        'label' => 'nginx',
+                        'value' => 'nginx',
+                    ],
+                    [
+                        'label' => 'PHP',
+                        'value' => 'php',
+                    ],
+                    [
+                        'label' => 'Sass',
+                        'value' => 'sass',
+                    ],
+                    [
+                        'label' => 'Scss',
+                        'value' => 'scss',
+                    ],
+                    [
+                        'label' => 'SVG',
+                        'value' => 'svg',
+                    ],
+                    [
+                        'label' => 'TypoScript',
+                        'value' => 'typoscript',
+                    ],
+                    [
+                        'label' => 'XML',
+                        'value' => 'xml',
+                    ],
+                    [
+                        'label' => 'YAML',
+                        'value' => 'yaml',
+                    ],
                 ],
                 'default' => 'none',
             ],
-            'l10n_mode' => 'exclude'
-        ]
+            'l10n_mode' => 'exclude',
+        ],
     ]
 );
 
-// Activate t3editor if extension is activated
-if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3editor')) {
+// v12
+if (ExtensionManagementUtility::isLoaded('t3editor')) {
     $GLOBALS['TCA']['tt_content']['types']['syntax']['columnsOverrides'] = [
         'bodytext' => [
             'config' => [
                 'renderType' => 't3editor',
-                'wrap' => 'off'
-            ]
-        ]
+                'wrap' => 'off',
+            ],
+        ],
+    ];
+}
+
+// v13 onwards
+if ((new Typo3Version)->getMajorVersion() >= 13) {
+    $GLOBALS['TCA']['tt_content']['types']['syntax']['columnsOverrides'] = [
+        'bodytext' => [
+            'config' => [
+                'renderType' => 'codeEditor',
+                'wrap' => 'off',
+            ],
+        ],
     ];
 }

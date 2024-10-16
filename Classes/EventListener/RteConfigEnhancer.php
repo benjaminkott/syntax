@@ -18,7 +18,7 @@ class RteConfigEnhancer
     {
         $configuration = $event->getConfiguration();
         $configuration['syntax_code'] = [
-            'resource' => 'EXT:syntax/Resources/Public/CKEditor/Plugins/Code/plugin.js'
+            'resource' => 'EXT:syntax/Resources/Public/CKEditor/Plugins/Code/plugin.js',
         ];
         $event->setConfiguration($configuration);
     }
