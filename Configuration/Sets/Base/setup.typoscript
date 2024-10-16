@@ -1,0 +1,37 @@
+tt_content.syntax =< lib.contentElement
+tt_content.syntax {
+    templateName = Syntax
+    templateRootPaths {
+        1 = EXT:syntax/Resources/Private/Templates/ContentElements/
+    }
+    partialRootPaths {
+        1 = EXT:syntax/Resources/Private/Partials/ContentElements/
+    }
+    layoutRootPaths {
+        1 = EXT:syntax/Resources/Private/Layouts/ContentElements/
+    }
+    settings {
+        syntax {
+            theme = {$plugin.tx_syntax.settings.theme}
+            plugins {
+                linenumbers = {$plugin.tx_syntax.settings.plugins.linenumbers}
+            }
+        }
+    }
+}
+
+page {
+    includeCSSLibs {
+        syntax_theme = EXT:syntax/Resources/Public/Css/prism{$plugin.tx_syntax.settings.theme}.min.css
+        syntax_plugins_linenumbers = EXT:syntax/Resources/Public/Css/prism-plugin-linenumbers.min.css
+        syntax_plugins_linenumbers.if.isTrue = {$plugin.tx_syntax.settings.plugins.linenumbers}
+        syntax_plugins_toolbar = EXT:syntax/Resources/Public/Css/prism-plugin-toolbar.min.css
+    }
+    includeJSFooter {
+        syntax_prism = EXT:syntax/Resources/Public/JavaScript/prism.min.js
+        syntax_plugins_linenumbers = EXT:syntax/Resources/Public/JavaScript/prism-plugin-linenumbers.min.js
+        syntax_plugins_linenumbers.if.isTrue = {$plugin.tx_syntax.settings.plugins.linenumbers}
+        syntax_plugins_showlanguage = EXT:syntax/Resources/Public/JavaScript/prism-plugin-showlanguage.min.js
+        syntax_plugins_toolbar = EXT:syntax/Resources/Public/JavaScript/prism-plugin-toolbar.min.js
+    }
+}
