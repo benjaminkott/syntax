@@ -1,3 +1,21 @@
+# 4.0.0
+
+## TASK
+
+- 7c02d8c [TASK] Update CI
+- cc85356 [TASK] Add set support
+- 879107d [TASK] Reflect codeEditor langauge based on selection
+- 5924324 [TASK] Make v13 compatible
+
+## BUGFIX
+
+- 9018e44 [BUGFIX] Drop 13@dev from ci
+- 4349017 [BUGFIX] Make ckeditor config v12 and v13 compatible
+
+## Contributors
+
+- Benjamin Kott
+
 # 3.0.0
 
 ## TASK
