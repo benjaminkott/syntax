@@ -22,10 +22,11 @@ ExtensionManagementUtility::addTcaSelectItem(
     'tt_content',
     'CType',
     [
-        'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.title',
-        'syntax',
-        'content-element-syntax',
-        'syntax',
+        'label' => 'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.title',
+        'description' => 'LLL:EXT:syntax/Resources/Private/Language/locallang_be.xlf:content_element.syntax.description',
+        'value' => 'syntax',
+        'icon' => 'content-element-syntax',
+        'group' => 'syntax',
     ]
 );
 
