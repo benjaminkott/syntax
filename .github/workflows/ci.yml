@@ -9,7 +9,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        typo3: ['^12', '^13', '13.4.x-dev']
+        typo3: ['^12', '^13']
         php: ['8.2', '8.3']
         include:
           - typo3: '^12'
