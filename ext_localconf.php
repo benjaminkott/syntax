@@ -7,6 +7,9 @@
  * LICENSE file that was distributed with this source code.
  */
 
+use BK2K\Syntax\Form\DataProvider\CodeEditorFormatDataProvider;
+use TYPO3\CMS\Backend\Form\FormDataProvider\EvaluateDisplayConditions;
+use TYPO3\CMS\Backend\Form\FormDataProvider\TcaColumnsOverrides;
 use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 use TYPO3\CMS\Core\Imaging\IconRegistry;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -26,3 +29,10 @@ $iconRegistry->registerIcon(
     SvgIconProvider::class,
     ['source' => 'EXT:syntax/Resources/Public/Icons/ContentElements/content-element-syntax.svg']
 );
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup']['tcaDatabaseRecord'][CodeEditorFormatDataProvider::class] = [
+    'depends' => [
+        TcaColumnsOverrides::class,
+        EvaluateDisplayConditions::class,
+    ],
+];
