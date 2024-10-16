@@ -9,26 +9,52 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        php: ['7.4', '8.0', '8.1', '8.2']
+        typo3: ['^12', '^13', '13.4.x-dev']
+        php: ['8.2', '8.3']
+        include:
+          - typo3: '^12'
+            php: '8.1'
     steps:
+
       - id: checkout
         name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - id: setup_php
         name: Set up PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           tools: composer:v2
+
+      - name: Composer Cache Vars
+        id: composer-cache-vars
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+          echo "timestamp=$(date +"%s")" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache-vars.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.typo3 }}-${{ steps.composer-cache-vars.outputs.timestamp }}
+          restore-keys: |
+            ${{ runner.os }}-composer-${{ matrix.php }}-${{ matrix.typo3 }}-
+            ${{ runner.os }}-composer-${{ matrix.php }}-
+            ${{ runner.os }}-composer-
+
       - id: install
         name: Install
         run: |
-          composer install --no-progress
+          composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
+          git checkout composer.json
+
       - id: lint
         name: Lint
         if: ${{ always() && steps.install.conclusion == 'success' }}
         run: |
           composer test:php:lint
+
       - id: cgl
         name: CGL
         if: ${{ always() && steps.install.conclusion == 'success' }}
@@ -39,22 +65,29 @@ jobs:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
+
       - id: checkout
         name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - id: setup_node
         name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - name: Install
+          node-version: 20
+
+      - id: install
+        name: Install
         run: |
           cd Build
-          npm ci
-      - name: Build
+          npm install
+
+      - id: build
+        name: Build
         run: |
           cd Build
           npm run build
+
       - name: Status
         run: |
           git status

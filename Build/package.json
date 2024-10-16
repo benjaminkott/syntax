@@ -5,7 +5,6 @@
     "readme": "../README.md",
     "homepage": "http://www.bk2k.info",
     "author": "Benjamin Kott",
-    "version": "3.0.0",
     "license": "GPL-2.0-or-later",
     "devDependencies": {
         "grunt": "^1.6.1",
