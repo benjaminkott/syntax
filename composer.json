@@ -24,19 +24,20 @@
         "issues": "https://github.com/benjaminkott/syntax/issues"
     },
     "require": {
-        "php": ">=8.1.0",
-        "typo3/cms-backend": "^12.4 || ^13.4",
-        "typo3/cms-core": "^12.4 || ^13.4",
-        "typo3/cms-extensionmanager": "^12.4 || ^13.4",
-        "typo3/cms-frontend": "^12.4 || ^13.4",
-        "typo3/cms-install": "^12.4 || ^13.4",
-        "typo3/cms-rte-ckeditor": "^12.4 || ^13.4"
+        "php": ">=8.2.0",
+        "typo3/cms-backend": "^13.4 || ^14.3",
+        "typo3/cms-core": "^13.4 || ^14.3",
+        "typo3/cms-extensionmanager": "^13.4 || ^14.3",
+        "typo3/cms-frontend": "^13.4 || ^14.3",
+        "typo3/cms-install": "^13.4 || ^14.3",
+        "typo3/cms-rte-ckeditor": "^13.4 || ^14.3"
     },
     "require-dev": {
-        "bk2k/bootstrap-package": "^15.0",
+        "bk2k/bootstrap-package": "^16.0",
+        "bk2k/extension-helper": "^2.1",
         "friendsofphp/php-cs-fixer": "^3.64",
         "overtrue/phplint": "^9.0",
-        "typo3/cms-lowlevel": "^12.4 || ^13.4"
+        "typo3/cms-lowlevel": "^13.4 || ^14.3"
     },
     "autoload": {
         "psr-4": {
@@ -60,10 +61,6 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
-            "[ -d .build/public/_assets ] || mkdir -p .build/public/typo3conf/ext/",
-            "[ -d .build/public/_assets ] || [ -L .build/public/typo3conf/ext/syntax ] || ln -snvf ../../../../. .build/public/typo3conf/ext/syntax"
-        ],
         "cgl": [
             "php-cs-fixer --diff -v fix"
         ],
@@ -75,6 +72,9 @@
         ],
         "test": [
             "@test:php:lint"
+        ],
+        "set-version": [
+            "extension-helper version:set"
         ]
     },
     "extra": {
@@ -83,7 +83,7 @@
             "web-dir": ".build/public"
         },
         "branch-alias": {
-            "dev-master": "4.0.x-dev"
+            "dev-master": "5.0.x-dev"
         }
     }
 }
