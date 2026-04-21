@@ -1,3 +1,19 @@
+# 5.0.0
+
+## TASK
+
+- cd3b7ba [TASK] Use node 24
+- abe407a [TASK] Add compat for v14
+
+## BUGFIX
+
+- 326bdd2 [BUGFIX] CGL
+- 3e97bee [BUGFIX] Add missing description
+
+## Contributors
+
+- Benjamin Kott
+
 # 4.0.0
 
 ## TASK
